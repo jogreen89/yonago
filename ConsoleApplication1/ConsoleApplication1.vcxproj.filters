@@ -18,6 +18,9 @@
     <ClInclude Include="PageFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="refString.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PageFrame.cpp">

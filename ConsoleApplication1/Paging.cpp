@@ -9,6 +9,7 @@
 #include <string.h>
 // Local project headers
 #include "PageFrame.h"
+#include "refString.h"
 
 #define ARGS 2
 
@@ -24,16 +25,7 @@ int main(int argc, char **argv) {
 	}
 
 	// With enough arguments provided, run a Page Replacement algorithm
-	// Build a reference string, ask the user for the length.
-	std::string refString;
-	std::cout << "Please provide the length of the reference string: ";
-	std::cin >> refString;
-	std::cout << "This is your reference string = " << refString << std::endl;
-
-	int x, i;
-	for (i = 0; i < refString.size(); i++) {
-		std::cout << "This is a char " << refString[i] << std::endl;
-	}
+	std::cout << "Thank you for using this Page Replacement simulation." << std::endl;
 
 	if (strcmp(argv[1], "fifo") == 0)
 		runFifo();
@@ -48,6 +40,8 @@ int main(int argc, char **argv) {
 void runFifo(void) {
 	std::cout << "Implementation of FIFO page replacement algorithm."
 		<< std::endl;
+	helloRefString();
+	
 }
 
 void runOptimal(void) {

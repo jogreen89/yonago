@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="PageFrame.h" />
+    <ClInclude Include="refString.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PageFrame.cpp" />
