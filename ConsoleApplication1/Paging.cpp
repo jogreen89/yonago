@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+
 // Local project headers
 #include "PageFrame.h"
 #include "refString.h"
@@ -20,7 +21,8 @@ void runLru(void);
 int main(int argc, char **argv) {
 	// Verify that enough command arguments were provided 
 	if (argc < ARGS) {
-		std::cout << "Usage: paging [fifo|lru|optimal]" << std::endl;
+		std::cout << "Usage: paging [fifo|lru|optimal]" 
+			<< std::endl;
 		return 0;
 	}
 
