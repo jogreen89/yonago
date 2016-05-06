@@ -21,12 +21,18 @@
     <ClInclude Include="refString.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PageFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Paging.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

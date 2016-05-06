@@ -9,7 +9,7 @@
 #include <string.h>
 
 // Local project headers
-#include "PageFrame.h"
+#include "Frame.h"
 #include "refString.h"
 
 #define ARGS 2
@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 void runFifo(void) {
 	std::cout << "Implementation of FIFO page replacement algorithm."
 		<< std::endl;
-	genPageRefString();
+	genPageRefString(5);
 	
 }
 
