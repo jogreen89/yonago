@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 void runFifo(void) {
 	std::cout << "Implementation of FIFO page replacement algorithm."
 		<< std::endl;
-	helloRefString();
+	genPageRefString();
 	
 }
 

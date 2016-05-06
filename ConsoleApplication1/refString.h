@@ -1,24 +1,40 @@
 #ifndef REFSTRING_H
 #define REFSTRING_H
-#include <iostream>
+
+#include <iostream> 
+#include <stdlib.h>
 #include <string>
+#include <time.h>
 
-void helloRefString(void);
+#define PAGE_NUMBER_MAX 19
 
-void helloRefString(void) {
-	std::string refString;
-	char *str;
+void genPageRefString(int);
+
+void genPageRefString(int stringSize) {
 	int i;
-	std::cout << "Please provide the length of the reference string: ";
-	std::cin >> refString;
+	// obtain a seed from the system clock:
+	// ref: std::linear_congruential_engine::operator() cplusplus.com
+	std::string refString;
 
-	for (i = 0; i < refString.size(); i++) {
-		std::cout << refString[i] << "\t";
-		
+	srand(time(NULL)); // initialize random seed
+
+	for (i = 0; i < stringSize; i++) {
+		int x = rand() % PAGE_NUMBER_MAX + 1;
+		std::string str = std::to_string(x);
+		refString.append(str+',');
 	}
 
-	std::cout << std::endl << "You entered a reference string of length "
-		<< refString.size() << std::endl;
+	i = 0;
+
+	// print refString to console
+	while (i < stringSize) {
+		char n = refString[i];		
+		if (n == ',')
+			std::cout << ' ';
+		else
+			std::cout << n;
+		i++;
+	}
 }
 
 #endif // !REFSTRING_H
