@@ -1,20 +1,17 @@
 #include "Frame.h"
 
 Frame::Frame() {
-	data = 0;
-	next = NULL;
+	size = 0;
+
 }
 
-Frame::~Frame() {
-	if (next) {
-		delete next;
-	}
+Frame::~Frame() {	
 }
 
-void Frame::setData(int val) {
-	data = val;
+void Frame::setSize(int val) {
+	size = val;
 }
 
-void Frame::setNext(Frame *frame) {
-	next = frame;
+void Frame::setFrameSize(int size) {
+	frameCell.resize(size);
 }

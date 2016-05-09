@@ -5,25 +5,33 @@
 #include <string>
 #include <time.h>
 #include <vector>
+#include <iostream>
 
 #define PAGE_NUMBER_MAX 19
 
-void genPageRefString(int);
+int* buildRefString(int);
+void parseRefString(int*, int);
 
-void genPageRefString(int stringSize) {
-	int i;
+int* buildRefString(int size) {
+	int *a = new int[size];
 	// obtain a seed from the system clock:
 	// ref: std::linear_congruential_engine::operator() cplusplus.com
-	std::vector<int> refString;
-
 	srand(time(NULL)); // initialize random seed
 
-	for (i = 0; i < stringSize; i++) {
+	int i;
+	for (i = 0; i < size; i++) {
 		int x = rand() % PAGE_NUMBER_MAX + 1;
-		refString.
+		a[i] = x;
 	}
-	i = 0;
 
+	return &a[0];
+}
+
+void parseRefString(int *a, int size) {
+	int i;
+	for (i = 0; i < size; i++) {
+		std::cout << a[i] << std::endl;
+	}
 }
 
 #endif // !REFSTRING_H

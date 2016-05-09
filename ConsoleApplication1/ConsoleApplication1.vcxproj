@@ -144,7 +144,6 @@
   <ItemGroup>
     <ClInclude Include="Frame.h" />
     <ClInclude Include="PageFrame.h" />
-    <ClInclude Include="refString.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Frame.cpp" />

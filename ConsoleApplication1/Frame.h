@@ -1,19 +1,19 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include <iostream>
+#include <vector>
 
 class Frame {
 public:
 	Frame();
 	~Frame();
 
-	void setData(int);
-	void setNext(Frame*);
-
+	void setSize(int);
+	void setFrameSize(int);
+	
 private:
-	int data;
-	Frame *next;
+	int size;
+	std::vector<int> frameCell;
 
 };
 
