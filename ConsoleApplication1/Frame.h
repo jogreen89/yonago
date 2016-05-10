@@ -10,7 +10,10 @@ public:
 
 	int getSize();
 	std::vector<int> getFrame();
-	void setFrame(int*, int);
+	std::vector<int> getHistory();
+
+	void setFrame(int*, int, int);
+	void fillFrame(int*, int, int);
 	
 private:
 	int size;

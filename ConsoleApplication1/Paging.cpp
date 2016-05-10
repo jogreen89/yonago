@@ -44,22 +44,23 @@ int main(int argc, char **argv) {
 
 void runFifo(void) {
 	int frameSize = 10;
-	cout << "Implementation of FIFO page replacement algorithm.\n" <<
-		"The Frame Size is " << frameSize << "." << endl;
-	// Build a reference string
 	int referenceStringSize = rand() % REF_STRING_LEN + 1;
-	// int size = 10;
+	cout << "Implementation of FIFO page replacement algorithm.\n" <<
+		"The Frame Size is " << frameSize << "." << endl << 
+		"and the Reference String Size is " << referenceStringSize << endl;
+
+	// Build a reference string
 	int *a = new int[referenceStringSize];
 	a = buildRefString(referenceStringSize);
 
-	// Build FIFO frame of size: size
+	// Build FIFO frame of size: 10
 	Frame *f = new Frame();
-	f->setFrame(a, frameSize);
+	f->fillFrame(a, referenceStringSize, frameSize);
 
 	// Test contents of frameCell
-	for (int i = 0; i < f->getSize(); i++) {
+	for (int i = 0; i < f->getSize(); i++)
 		cout << f->getFrame()[i] << endl;
-	}
+
 }
 
 void runOptimal(void) {
