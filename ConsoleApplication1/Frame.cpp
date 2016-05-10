@@ -2,16 +2,21 @@
 
 Frame::Frame() {
 	size = 0;
-
 }
 
 Frame::~Frame() {	
 }
 
-void Frame::setSize(int val) {
-	size = val;
+void Frame::setFrame(int *a, int k) {
+	size = k;
+	for (int i = 0; i < k; i++)
+		frameCell.push_back(a[i]);
 }
 
-void Frame::setFrameSize(int size) {
-	frameCell.resize(size);
+int Frame::getSize() {
+	return size;
+}
+
+std::vector<int> Frame::getFrame() {
+	return frameCell;
 }

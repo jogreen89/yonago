@@ -8,13 +8,14 @@ public:
 	Frame();
 	~Frame();
 
-	void setSize(int);
-	void setFrameSize(int);
+	int getSize();
+	std::vector<int> getFrame();
+	void setFrame(int*, int);
 	
 private:
 	int size;
 	std::vector<int> frameCell;
-
+	std::vector<int> history;
 };
 
 #endif

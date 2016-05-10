@@ -29,7 +29,6 @@ int main(int argc, char **argv) {
 		cout << "Usage: paging [fifo|lru|optimal]" << endl;
 		return 0;
 	}
-
 	// With enough arguments provided, run a Page Replacement algorithm
 	cout << "Thank you for using this Page Replacement simulation." << endl;
 
@@ -44,13 +43,23 @@ int main(int argc, char **argv) {
 }
 
 void runFifo(void) {
-	int size = rand() % REF_STRING_LEN + 1;
-	cout << "Implementation of FIFO page replacement algorithm." << "Size: "
-		 << "Size: " << size << endl;
-
+	int frameSize = 10;
+	cout << "Implementation of FIFO page replacement algorithm.\n" <<
+		"The Frame Size is " << frameSize << "." << endl;
 	// Build a reference string
-	int *a = new int[size];
-	a = buildRefString(size);
+	int referenceStringSize = rand() % REF_STRING_LEN + 1;
+	// int size = 10;
+	int *a = new int[referenceStringSize];
+	a = buildRefString(referenceStringSize);
+
+	// Build FIFO frame of size: size
+	Frame *f = new Frame();
+	f->setFrame(a, frameSize);
+
+	// Test contents of frameCell
+	for (int i = 0; i < f->getSize(); i++) {
+		cout << f->getFrame()[i] << endl;
+	}
 }
 
 void runOptimal(void) {
@@ -63,9 +72,7 @@ void runLru(void) {
 
 int* buildRefString(int size) {
 	int *a = new int[size];
-	// obtain a seed from the system clock:
-	// ref: std::linear_congruential_engine::operator() cplusplus.com
-	srand(time(NULL)); // initialize random seed
+	srand(time(NULL));		// initialize random seed
 
 	int i;
 	for (i = 0; i < size; i++) {
