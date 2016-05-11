@@ -23,7 +23,7 @@ public:
 	void fillLRU(int*, int);
 	
 private:
-	int faults = 0;					// number of page faults
+	int faults = 0;				// number of page faults
 	int frameSize;				// frame size
 	int referenceStringSize;	// reference string
 	std::vector<int> frame;		// frame container

@@ -31,18 +31,24 @@ int main(int argc, char **argv) {
 		return 0;
 	}
 	// With enough arguments provided, run a Page Replacement algorithm
-	cout << "Thank you for using this Page Replacement simulation." << endl;
+	cout << "Thank you for using this Page Replacement Simulation." << endl;
 
-	if (strcmp(argv[1], "fifo") == 0)
+	if (strcmp(argv[1], "fifo") == 0 ||
+		strcmp(argv[1], "FIFO") == 0)
 		runFifo();
-	if (strcmp(argv[1], "optimal") == 0)
+	if (strcmp(argv[1], "optimal") == 0 ||
+		strcmp(argv[1], "OPTIMAL") == 0)
 		runOptimal();
-	if (strcmp(argv[1], "lru") == 0)
+	if (strcmp(argv[1], "lru") == 0 ||
+		strcmp(argv[1], "LRU") == 0)
 		runLru();
 	
 	return 0;
 }
 
+// Run the FIFO page replacement algorithm. Build a 
+// reference string, fill the frame and count the number
+// of page faults.
 void runFifo(void) {
 	int refStringSize = rand() % REF_STRING_LEN + 1;
 	// Create a new reference string
@@ -80,6 +86,9 @@ void runFifo(void) {
 	return;
 }
 
+// Run the Optimal page replacement algorithm. Build a 
+// reference string, fill the frame and count the number
+// of page faults.
 void runOptimal(void) {
 	int refStringSize = rand() % REF_STRING_LEN + 1;
 	// Create a new reference string
@@ -90,7 +99,7 @@ void runOptimal(void) {
 	Frame *f = new Frame();
 	f->setReferenceString(a, refStringSize);
 	// Run FIFO replacement on reference string
-	f->fillFIFO(a, f->getRefStringSize());
+	f->fillOptimal(a, f->getRefStringSize());
 
 	// Test contents of reference string after fillFrame 
 	cout << "The following is the Ref String --> " << endl;
@@ -117,6 +126,9 @@ void runOptimal(void) {
 	return;
 }
 
+// Run the LRU page replacement algorithm. Build a 
+// reference string, fill the frame and count the number
+// of page faults.
 void runLru(void) {
 	int refStringSize = rand() % REF_STRING_LEN + 1;
 	// Create a new reference string
@@ -127,7 +139,7 @@ void runLru(void) {
 	Frame *f = new Frame();
 	f->setReferenceString(a, refStringSize);
 	// Run FIFO replacement on reference string
-	f->fillFIFO(a, f->getRefStringSize());
+	f->fillLRU(a, f->getRefStringSize());
 
 	// Test contents of reference string after fillFrame 
 	cout << "The following is the Ref String --> " << endl;
