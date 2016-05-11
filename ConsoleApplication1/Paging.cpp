@@ -45,22 +45,33 @@ int main(int argc, char **argv) {
 void runFifo(void) {
 	int frameSize = 10;
 	int referenceStringSize = rand() % REF_STRING_LEN + 1;
-	cout << "Implementation of FIFO page replacement algorithm.\n" <<
-		"The Frame Size is " << frameSize << "." << endl << 
-		"and the Reference String Size is " << referenceStringSize << endl;
+	cout << "Implementation of FIFO page replacement algorithm.\n" 
+		 << "The Frame Size is " << frameSize << "." << endl 
+		 << "and the Reference String Size is " << referenceStringSize << endl;
 
 	// Build a reference string
 	int *a = new int[referenceStringSize];
 	a = buildRefString(referenceStringSize);
 
-	// Build FIFO frame of size: 10
+	// Build FIFO frame of size: 8
 	Frame *f = new Frame();
-	f->fillFrame(a, referenceStringSize, frameSize);
+	f->setReferenceString(a);
+	f->fillFrame(a, referenceStringSize);
 
-	// Test contents of frameCell
-	for (int i = 0; i < f->getSize(); i++)
-		cout << f->getFrame()[i] << endl;
+	// Test contents of frame of size : 8 
+	cout << "The following is saved in the frame." << endl;
+	int n = f->getFrameSize();
+	for (int i = 0; i < n; i++)
+		cout << f->getFrame()[i] << " ";
+	cout << endl;
 
+	// Test contents of reference string of size : 
+	cout << "The following is the Ref String --> " << endl;
+	int m = f->getRefStringSize();
+	for (int j = 0; j < m; j++)
+		cout << f->getReferenceString()[j] << " ";
+
+	return;
 }
 
 void runOptimal(void) {

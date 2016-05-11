@@ -8,17 +8,22 @@ public:
 	Frame();
 	~Frame();
 
-	int getSize();
+	int getFrameSize();
+	int getRefStringSize();
 	std::vector<int> getFrame();
 	std::vector<int> getHistory();
+	std::vector<int> getReferenceString();
 
 	void setFrame(int*, int, int);
-	void fillFrame(int*, int, int);
+	void setReferenceString(int*);
+	void fillFrame(int*, int);
 	
 private:
-	int size;
-	std::vector<int> frameCell;
+	int frameSize;
+	int referenceStringSize;
+	std::vector<int> frame;
 	std::vector<int> history;
+	std::vector<int> referenceString;
 };
 
 #endif
