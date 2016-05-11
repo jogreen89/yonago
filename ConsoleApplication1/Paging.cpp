@@ -44,32 +44,42 @@ int main(int argc, char **argv) {
 
 void runFifo(void) {
 	int frameSize = 10;
-	int referenceStringSize = rand() % REF_STRING_LEN + 1;
+	int refStringSize = rand() % REF_STRING_LEN + 1;
 	cout << "Implementation of FIFO page replacement algorithm.\n" 
 		 << "The Frame Size is " << frameSize << "." << endl 
-		 << "and the Reference String Size is " << referenceStringSize << endl;
+		 << "and the Reference String Size is " << refStringSize << endl;
 
-	// Build a reference string
-	int *a = new int[referenceStringSize];
-	a = buildRefString(referenceStringSize);
+	// Create a new reference string
+	int *a = new int[refStringSize];
+	a = buildRefString(refStringSize);		// simple array of ints
 
 	// Build FIFO frame of size: 8
 	Frame *f = new Frame();
-	f->setReferenceString(a);
-	f->fillFrame(a, referenceStringSize);
+	f->setReferenceString(a, refStringSize);
+
+	// Test contents of reference string after fillFrame 
+	cout << "The following is the Ref String --> " << endl;
+	int p = f->getRefStringSize();
+	for (int k = 0; k < p; k++)
+		cout << f->getReferenceString()[k] << " ";
+	cout << endl;
+
+	// Run FIFO replacement on reference string
+	f->fillFrame(a, f->getRefStringSize());
 
 	// Test contents of frame of size : 8 
-	cout << "The following is saved in the frame." << endl;
+	cout << "The following is saved in the Frame." << endl;
 	int n = f->getFrameSize();
 	for (int i = 0; i < n; i++)
 		cout << f->getFrame()[i] << " ";
 	cout << endl;
 
-	// Test contents of reference string of size : 
+	// Test contents of reference string after fillFrame 
 	cout << "The following is the Ref String --> " << endl;
 	int m = f->getRefStringSize();
 	for (int j = 0; j < m; j++)
 		cout << f->getReferenceString()[j] << " ";
+	cout << endl;
 
 	return;
 }

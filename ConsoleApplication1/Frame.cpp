@@ -27,7 +27,8 @@ std::vector<int> Frame::getReferenceString() {
 	return referenceString;
 }
 
-void Frame::setReferenceString(int *a) {
+void Frame::setReferenceString(int *a, int size) {
+	referenceStringSize = size;
 	int n = getRefStringSize();
 	for (int i = 0; i < n; i++)
 		referenceString.push_back(a[i]);
@@ -36,16 +37,24 @@ void Frame::setReferenceString(int *a) {
 
 void Frame::fillFrame(int *a, int max) {
 	int i = 0, j = 0;
+	int frameSize = getFrameSize();
 	while (i < max) {
-		while (j < frameSize) {
+		if (j < frameSize && i < frameSize) {
 			frame.push_back(a[i]);
-			referenceString.push_back(a[i]);
+			i++;
+			j++;
+		} 
+		else if (j == frameSize) {
+			j = 0;
+			frame[j] = a[i];
 			i++;
 			j++;
 		}
-		j = 0;
-		referenceString.push_back(a[i]);
-		i++;
+		else {
+			frame[j] = a[i];
+			i++;
+			j++;
+		}
 	}
 	return;
 }

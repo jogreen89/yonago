@@ -14,11 +14,11 @@ public:
 	std::vector<int> getHistory();
 	std::vector<int> getReferenceString();
 
-	void setFrame(int*, int, int);
-	void setReferenceString(int*);
+	void setReferenceString(int*, int);
 	void fillFrame(int*, int);
 	
 private:
+	int faults;		// number of page faults
 	int frameSize;
 	int referenceStringSize;
 	std::vector<int> frame;
